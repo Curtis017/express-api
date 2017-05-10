@@ -25,3 +25,7 @@ npm-debug.log
 
 # Config Files
 config.js
+
+# OSX
+.DS_Store
+
