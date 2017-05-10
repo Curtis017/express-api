@@ -6,11 +6,11 @@ This is an express server that exposes a RESTful api.
 
 ## Responses
 The following responses have been constructed by the interpretation of [RFC 7231](https://tools.ietf.org/html/rfc7231)
-##### HTTP Response 201
+#### HTTP Response 201
 An HTTP response of [201](https://tools.ietf.org/html/rfc7231#page-52) will imply the record has been created in the database successfully.
-##### HTTP Response 400
+#### HTTP Response 400
 An HTTP response of [400](https://tools.ietf.org/html/rfc7231#page-58) will imply that the provided data is invalid (i.e. does not match the type or pattern specified in the model).
-##### HTTP Response 409
+#### HTTP Response 409
 An HTTP response of [409](https://tools.ietf.org/html/rfc7231#page-60) will imply a duplicate key error (i.e. the record already exists).
 
 ## Configuration
@@ -31,3 +31,9 @@ module.exports = {
   }
 }
 ``` 
+
+## Optional Directories
+Along with the current structure I have also added three other folders to the root of the project:
+* logs
+* models
+* middleware
