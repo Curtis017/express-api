@@ -1,15 +1,10 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); // http request logger
 const config = require('./config');
 const logger = require('./components/logger'); // logging (error, warn, info, verbose)
 const database = require('./components/database');
-const authenticate = require('./middleware/authenticate');
-
-// Set JSONWebToken secret
-app.set('jwtSecret', config.jwtSecret);
 
 // Middleware
 app.use(morgan(config.morgan[process.env.NODE_ENV], {stream: logger.stream}));
@@ -17,8 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Routing
-app.use('/user', require('./routes/user/')); // index.js
-app.use('/photo', authenticate, require('./routes/photo/')); // index.js
+app.use('/', require('./routes/index/')); // index.js
 
 // 404 - forward to error handler
 app.use(function(req, res, next) {

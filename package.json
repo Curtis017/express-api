@@ -4,25 +4,22 @@
   "description": "",
   "main": "./bin/server",
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./bin/server",
-    "clean": "rm -rf ./logs/*",
-    "test": "mocha --timeout 10000 2> logs/testError.log || exit 0"
+    "start": "cross-env NODE_ENV=development nodemon ./bin/server",
+    "clean": "cross-env rm -rf ./logs/*",
+    "test": "cross-env mocha --timeout 10000 2> logs/test.error.log || exit 0"
   },
-  "author": "",
+  "author": "Curtis Hughes",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "fs": "0.0.1-security",
-    "jsonwebtoken": "^7.3.0",
-    "mongoose": "^4.9.2",
     "morgan": "^1.8.1",
     "winston": "^2.3.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "cross-env": "^4.0.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   }
